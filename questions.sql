@@ -315,6 +315,7 @@ group by b.CodBairro
 
 --1.j
 create table escola_por_tipo as
-select e.Munic_est, st_union(e.geom) as geom
-from escola e
+select e.Munic_est, st_union(a.geo) as geom
+from area_escola a, escola e
+where st_contains(a.geom, e.geom)
 group by e.Munic_est
