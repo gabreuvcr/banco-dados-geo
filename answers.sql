@@ -160,8 +160,6 @@ select sum(n_habitant) as populacao_total
 from set_censo_2010_mg cen, comarca_tjmg com
 where com.comarca = 'BRUMADINHO'
 and st_contains(com.geom, st_pointonsurface(cen.geom))
--- meu 33973
--- dele 30614
 
 -- 20. Verificar quantos municípios estão contidos total ou parcialmente
 -- na bacia do Rio Doce
@@ -198,7 +196,6 @@ group by d.ddd
 
 -- 24. Listar as comarcas do TJMG relacionadas espacialmente à macrorregião
 -- ‘Jequitinhonha’.
-
 select c.comarca, c.geom, c.tid
 from comarca_tjmg c, macrorregiao_mg m
 where m.macroreg = 'Jequitinhonha' 
